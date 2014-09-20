@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6H-2c-QzG">
+                                <rect key="frame" x="113" y="269" width="95" height="30"/>
+                                <state key="normal" title="Add Contacts">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addContactsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCH-bM-1t1"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1G-Ns-wOJ">
+                                <rect key="frame" x="147" y="28" width="26" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfl-0N-3XN">
+                                <rect key="frame" x="119" y="134" width="83" height="30"/>
+                                <state key="normal" title="Add Images">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="importImagesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkC-8z-nxh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uz0-La-A4V">
+                                <rect key="frame" x="123" y="185" width="79" height="30"/>
+                                <state key="normal" title="Add Videos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="importVideosTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psg-KB-2lr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaA-R3-kZz">
+                                <rect key="frame" x="81" y="341" width="159" height="30"/>
+                                <state key="normal" title="Add Charles Certificate">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="installCharlesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rjt-hU-X7y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jfl-0N-3XN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Hi-Yk-7QI"/>
+                            <constraint firstAttribute="centerX" secondItem="Uz0-La-A4V" secondAttribute="centerX" constant="-2.5" id="5jn-Nu-6Gg"/>
+                            <constraint firstItem="b6H-2c-QzG" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" id="8Sa-BL-mHX"/>
+                            <constraint firstAttribute="centerX" secondItem="b6H-2c-QzG" secondAttribute="centerX" constant="-0.5" id="GpJ-yA-ru2"/>
+                            <constraint firstItem="b6H-2c-QzG" firstAttribute="top" secondItem="Uz0-La-A4V" secondAttribute="bottom" constant="54" id="JaN-nA-3SR"/>
+                            <constraint firstItem="jfl-0N-3XN" firstAttribute="trailing" secondItem="Uz0-La-A4V" secondAttribute="trailing" id="Jdj-Qz-LJ3"/>
+                            <constraint firstItem="NaA-R3-kZz" firstAttribute="top" secondItem="b6H-2c-QzG" secondAttribute="bottom" constant="42" id="MZC-O6-hXc"/>
+                            <constraint firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" constant="-0.5" id="Qy9-X4-NlE"/>
+                            <constraint firstAttribute="centerX" secondItem="Q1G-Ns-wOJ" secondAttribute="centerX" constant="-0.5" id="Ruw-FI-ko9"/>
+                            <constraint firstItem="b6H-2c-QzG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jWw-gP-CAJ"/>
+                            <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" id="oXQ-En-vdH"/>
+                            <constraint firstAttribute="centerX" secondItem="NaA-R3-kZz" secondAttribute="centerX" constant="-0.5" id="om6-F2-oKF"/>
+                            <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="qYU-RF-lPA"/>
+                            <constraint firstItem="Uz0-La-A4V" firstAttribute="top" secondItem="jfl-0N-3XN" secondAttribute="bottom" constant="21" id="yp5-4f-PdL"/>
+                            <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="z5v-uU-PiI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pathTextField" destination="Q1G-Ns-wOJ" id="knF-A9-2CM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74.133333333333326" y="128.74666666666667"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
