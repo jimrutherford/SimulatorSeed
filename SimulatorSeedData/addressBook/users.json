@@ -1,0 +1,484 @@
+{
+  "results": [
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "lorraine",
+          "last": "matthews"
+        },
+        "location": {
+          "street": "9499 smokey ln",
+          "city": "coppell",
+          "state": "indiana",
+          "zip": "53087"
+        },
+        "email": {
+          "email": "lorraine.matthews87@example.com"
+        },
+        "phone": {
+          "home": "(683)-745-3302",
+          "cell": "(776)-610-7135"
+        },
+        "profilePicture": "profilePictures/00.jpg",
+        "dob": "67355318"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "dan",
+          "last": "howard"
+        },
+        "location": {
+          "street": "6905 e little york rd",
+          "city": "desoto",
+          "state": "georgia",
+          "zip": "34957"
+        },
+        "email": {
+          "email": "dan.howard67@example.com"
+        },
+        "phone": {
+          "home": "(788)-194-2589",
+          "cell": "(546)-970-5374"
+        },
+        "profilePicture": "profilePictures/01.jpg",
+        "dob": "27024690"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "micheal",
+          "last": "stewart"
+        },
+        "location": {
+          "street": "7465 white oak dr",
+          "city": "frederick",
+          "state": "michigan",
+          "zip": "43625"
+        },
+        "email": {
+          "email": "micheal.stewart84@example.com"
+        },
+        "phone": {
+          "home": "(332)-645-7858",
+          "cell": "(641)-295-3130"
+        },
+        "profilePicture": "profilePictures/02.jpg",
+        "dob": "410459180"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "amanda",
+          "last": "banks"
+        },
+        "location": {
+          "street": "4406 groveland terrace",
+          "city": "shelby",
+          "state": "kansas",
+          "zip": "35367"
+        },
+        "email": {
+          "email": "amanda.banks91@example.com"
+        },
+        "phone": {
+          "home": "(861)-354-2714",
+          "cell": "(410)-695-3830"
+        },
+        "profilePicture": "profilePictures/03.jpg",
+        "dob": "49947223"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "larry",
+          "last": "burke"
+        },
+        "location": {
+          "street": "2574 n stelling rd",
+          "city": "desoto",
+          "state": "massachusetts",
+          "zip": "90313"
+        },
+        "email": {
+          "email": "larry.burke73@example.com"
+        },
+        "phone": {
+          "home": "(824)-750-6857",
+          "cell": "(108)-317-9447"
+        },
+        "profilePicture": "profilePictures/04.jpg",
+        "dob": "440743685"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "marilyn",
+          "last": "alvarez"
+        },
+        "location": {
+          "street": "9952 college st",
+          "city": "flint",
+          "state": "new york",
+          "zip": "55484"
+        },
+        "email": {
+          "email": "marilyn.alvarez98@example.com"
+        },
+        "phone": {
+          "home": "(137)-566-8162",
+          "cell": "(676)-283-2076"
+        },
+        "profilePicture": "profilePictures/05.jpg",
+        "dob": "363825563"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "courtney",
+          "last": "wood"
+        },
+        "location": {
+          "street": "8870 hickory creek dr",
+          "city": "grapevine",
+          "state": "west virginia",
+          "zip": "73297"
+        },
+        "email": {
+          "email": "courtney.wood39@example.com"
+        },
+        "phone": {
+          "home": "(991)-823-8985",
+          "cell": "(491)-556-2399"
+        },
+        "profilePicture": "profilePictures/06.jpg",
+        "dob": "321459187"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mrs",
+          "first": "edith",
+          "last": "green"
+        },
+        "location": {
+          "street": "2566 white oak dr",
+          "city": "princeton",
+          "state": "missouri",
+          "zip": "29070"
+        },
+        "email": {
+          "email": "edith.green61@example.com"
+        },
+        "phone": {
+          "home": "(831)-698-1581",
+          "cell": "(786)-816-3805"
+        },
+        "profilePicture": "profilePictures/07.jpg",
+        "dob": "410042599"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "morris",
+          "last": "holland"
+        },
+        "location": {
+          "street": "5691 royal ln",
+          "city": "yakima",
+          "state": "arkansas",
+          "zip": "84473"
+        },
+        "email": {
+          "email": "morris.holland18@example.com"
+        },
+        "phone": {
+          "home": "(245)-744-2413",
+          "cell": "(674)-349-9504"
+        },
+        "profilePicture": "profilePictures/08.jpg",
+        "dob": "401049600"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "felecia",
+          "last": "anderson"
+        },
+        "location": {
+          "street": "4354 brown terrace",
+          "city": "fayetteville",
+          "state": "new mexico",
+          "zip": "27113"
+        },
+        "email": {
+          "email": "felecia.anderson80@example.com"
+        },
+        "phone": {
+          "home": "(162)-750-6254",
+          "cell": "(281)-418-7996"
+        },
+        "profilePicture": "profilePictures/09.jpg",
+        "dob": "414712792"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "leta",
+          "last": "nguyen"
+        },
+        "location": {
+          "street": "8582 samaritan dr",
+          "city": "escondido",
+          "state": "kentucky",
+          "zip": "61792"
+        },
+        "email": {
+          "email": "leta.nguyen74@example.com"
+        },
+        "phone": {
+          "home": "(925)-399-5369",
+          "cell": "(487)-818-8132"
+        },
+        "profilePicture": "profilePictures/10.jpg",
+        "dob": "109729757"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "ms",
+          "first": "renee",
+          "last": "curtis"
+        },
+        "location": {
+          "street": "3919 w gray st",
+          "city": "plano",
+          "state": "florida",
+          "zip": "35672"
+        },
+        "email": {
+          "email": "renee.curtis36@example.com"
+        },
+        "phone": {
+          "home": "(246)-166-8553",
+          "cell": "(910)-139-6664"
+        },
+        "profilePicture": "profilePictures/11.jpg",
+        "dob": "480021763"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "victor",
+          "last": "campbell"
+        },
+        "location": {
+          "street": "5851 nowlin rd",
+          "city": "waxahachie",
+          "state": "pennsylvania",
+          "zip": "12331"
+        },
+        "email": {
+          "email": "victor.campbell82@example.com"
+        },
+        "phone": {
+          "home": "(858)-439-4831",
+          "cell": "(513)-617-4204"
+        },
+        "profilePicture": "profilePictures/12.jpg",
+        "dob": "449018288"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "kelly",
+          "last": "ramos"
+        },
+        "location": {
+          "street": "3865 mcclellan rd",
+          "city": "north valley",
+          "state": "north dakota",
+          "zip": "78727"
+        },
+        "email": {
+          "email": "kelly.ramos17@example.com"
+        },
+        "phone": {
+          "home": "(677)-877-2146",
+          "cell": "(492)-336-4496"
+        },
+        "profilePicture": "profilePictures/13.jpg",
+        "dob": "301393332"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "glen",
+          "last": "banks"
+        },
+        "location": {
+          "street": "1498 crockett st",
+          "city": "fremont",
+          "state": "north dakota",
+          "zip": "36136"
+        },
+        "email": {
+          "email": "glen.banks59@example.com"
+        },
+        "phone": {
+          "home": "(195)-834-7981",
+          "cell": "(649)-459-8382"
+        },
+        "profilePicture": "profilePictures/14.jpg",
+        "dob": "115385215"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mrs",
+          "first": "debbie",
+          "last": "harrison"
+        },
+        "location": {
+          "street": "7363 cackson st",
+          "city": "medford",
+          "state": "new jersey",
+          "zip": "56280"
+        },
+        "email": {
+          "email": "debbie.harrison19@example.com"
+        },
+        "phone": {
+          "home": "(174)-604-8594",
+          "cell": "(664)-652-2052"
+        },
+        "profilePicture": "profilePictures/15.jpg",
+        "dob": "340769821"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "rene",
+          "last": "lane"
+        },
+        "location": {
+          "street": "8949 hogan st",
+          "city": "stockton",
+          "state": "south carolina",
+          "zip": "85785"
+        },
+        "email": {
+          "email": "rene.lane11@example.com"
+        },
+        "phone": {
+          "home": "(282)-433-7436",
+          "cell": "(529)-763-1276"
+        },
+        "profilePicture": "profilePictures/16.jpg",
+        "dob": "15464602"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "miss",
+          "first": "charlotte",
+          "last": "hale"
+        },
+        "location": {
+          "street": "6379 smokey ln",
+          "city": "frederick",
+          "state": "kentucky",
+          "zip": "20551"
+        },
+        "email": {
+          "email": "charlotte.hale22@example.com"
+        },
+        "phone": {
+          "home": "(978)-184-3786",
+          "cell": "(337)-206-4907"
+        },
+        "profilePicture": "profilePictures/17.jpg",
+        "dob": "409388912"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "calvin",
+          "last": "pierce"
+        },
+        "location": {
+          "street": "9279 railroad st",
+          "city": "lousville",
+          "state": "washington",
+          "zip": "30824"
+        },
+        "email": {
+          "email": "calvin.pierce27@example.com"
+        },
+        "phone": {
+          "home": "(823)-155-3099",
+          "cell": "(129)-879-5775"
+        },
+        "profilePicture": "profilePictures/18.jpg",
+        "dob": "48125682"
+      }
+    },
+    {
+      "user": {
+        "name": {
+          "title": "mr",
+          "first": "gabriel",
+          "last": "kelley"
+        },
+        "location": {
+          "street": "7362 w campbell ave",
+          "city": "los lunas",
+          "state": "texas",
+          "zip": "23175"
+        },
+        "email": {
+          "email": "gabriel.kelley46@example.com"
+        },
+        "phone": {
+          "home": "(474)-353-7249",
+          "cell": "(999)-659-7157"
+        },
+        "profilePicture": "profilePictures/19.jpg",
+        "dob": "277961325"
+      }
+    }
+  ]
+}
