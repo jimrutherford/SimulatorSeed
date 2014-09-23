@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		379A7DF519D0ECAF00AF4846 /* HeadShots.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379A7DF419D0ECAF00AF4846 /* HeadShots.xcassets */; };
 		37BF02F719CA281B0076B306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02F619CA281B0076B306 /* main.m */; };
 		37BF02FA19CA281B0076B306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02F919CA281B0076B306 /* AppDelegate.m */; };
 		37BF02FD19CA281B0076B306 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02FC19CA281B0076B306 /* ViewController.m */; };
@@ -15,13 +14,9 @@
 		37BF030219CA281B0076B306 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BF030119CA281B0076B306 /* Images.xcassets */; };
 		37BF031E19CA2A0A0076B306 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37BF031B19CA2A0A0076B306 /* SVProgressHUD.bundle */; };
 		37BF031F19CA2A0A0076B306 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF031D19CA2A0A0076B306 /* SVProgressHUD.m */; };
-		37FB19A119CBB51800F05C51 /* BigPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FB19A019CBB51800F05C51 /* BigPhotos.xcassets */; };
-		37FB19A419CBB53C00F05C51 /* MediumPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FB19A319CBB53C00F05C51 /* MediumPhotos.xcassets */; };
-		37FB19A619CBB55300F05C51 /* SmallPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37FB19A519CBB55300F05C51 /* SmallPhotos.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		379A7DF419D0ECAF00AF4846 /* HeadShots.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HeadShots.xcassets; sourceTree = "<group>"; };
 		37BF02F119CA281A0076B306 /* SimulatorSeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimulatorSeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BF02F519CA281B0076B306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37BF02F619CA281B0076B306 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,9 +29,6 @@
 		37BF031B19CA2A0A0076B306 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		37BF031C19CA2A0A0076B306 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		37BF031D19CA2A0A0076B306 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		37FB19A019CBB51800F05C51 /* BigPhotos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BigPhotos.xcassets; sourceTree = "<group>"; };
-		37FB19A319CBB53C00F05C51 /* MediumPhotos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MediumPhotos.xcassets; sourceTree = "<group>"; };
-		37FB19A519CBB55300F05C51 /* SmallPhotos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SmallPhotos.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +95,7 @@
 		37FB19A219CBB52700F05C51 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				37FB19A019CBB51800F05C51 /* BigPhotos.xcassets */,
 				37BF030119CA281B0076B306 /* Images.xcassets */,
-				37FB19A319CBB53C00F05C51 /* MediumPhotos.xcassets */,
-				37FB19A519CBB55300F05C51 /* SmallPhotos.xcassets */,
-				379A7DF419D0ECAF00AF4846 /* HeadShots.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -169,11 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37FB19A619CBB55300F05C51 /* SmallPhotos.xcassets in Resources */,
 				37BF030019CA281B0076B306 /* Main.storyboard in Resources */,
-				37FB19A419CBB53C00F05C51 /* MediumPhotos.xcassets in Resources */,
-				379A7DF519D0ECAF00AF4846 /* HeadShots.xcassets in Resources */,
-				37FB19A119CBB51800F05C51 /* BigPhotos.xcassets in Resources */,
 				37BF030219CA281B0076B306 /* Images.xcassets in Resources */,
 				37BF031E19CA2A0A0076B306 /* SVProgressHUD.bundle in Resources */,
 			);
