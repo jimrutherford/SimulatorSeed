@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37A77A5019D3A036009694B8 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A77A4F19D3A036009694B8 /* ImageManager.m */; };
+		37A77A5319D3A050009694B8 /* ContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A77A5219D3A050009694B8 /* ContactsManager.m */; };
 		37BF02F719CA281B0076B306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02F619CA281B0076B306 /* main.m */; };
 		37BF02FA19CA281B0076B306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02F919CA281B0076B306 /* AppDelegate.m */; };
 		37BF02FD19CA281B0076B306 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02FC19CA281B0076B306 /* ViewController.m */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37A77A4E19D3A036009694B8 /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageManager.h; path = Managers/ImageManager.h; sourceTree = "<group>"; };
+		37A77A4F19D3A036009694B8 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageManager.m; path = Managers/ImageManager.m; sourceTree = "<group>"; };
+		37A77A5119D3A050009694B8 /* ContactsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsManager.h; path = Managers/ContactsManager.h; sourceTree = "<group>"; };
+		37A77A5219D3A050009694B8 /* ContactsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsManager.m; path = Managers/ContactsManager.m; sourceTree = "<group>"; };
 		37BF02F119CA281A0076B306 /* SimulatorSeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimulatorSeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BF02F519CA281B0076B306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37BF02F619CA281B0076B306 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +48,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37A77A4D19D39FFD009694B8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				37A77A4E19D3A036009694B8 /* ImageManager.h */,
+				37A77A4F19D3A036009694B8 /* ImageManager.m */,
+				37A77A5119D3A050009694B8 /* ContactsManager.h */,
+				37A77A5219D3A050009694B8 /* ContactsManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		37BF02E819CA281A0076B306 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +78,7 @@
 		37BF02F319CA281A0076B306 /* SimulatorSeed */ = {
 			isa = PBXGroup;
 			children = (
+				37A77A4D19D39FFD009694B8 /* Managers */,
 				37FB19A219CBB52700F05C51 /* Assets */,
 				37BF031A19CA2A0A0076B306 /* SVProgressHUD */,
 				37BF02F819CA281B0076B306 /* AppDelegate.h */,
@@ -172,6 +190,8 @@
 			files = (
 				37BF02FD19CA281B0076B306 /* ViewController.m in Sources */,
 				37BF031F19CA2A0A0076B306 /* SVProgressHUD.m in Sources */,
+				37A77A5319D3A050009694B8 /* ContactsManager.m in Sources */,
+				37A77A5019D3A036009694B8 /* ImageManager.m in Sources */,
 				37BF02FA19CA281B0076B306 /* AppDelegate.m in Sources */,
 				37BF02F719CA281B0076B306 /* main.m in Sources */,
 			);

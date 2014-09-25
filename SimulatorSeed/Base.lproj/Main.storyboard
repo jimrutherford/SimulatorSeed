@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -41,15 +41,6 @@
                                     <action selector="importImagesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkC-8z-nxh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uz0-La-A4V">
-                                <rect key="frame" x="123" y="185" width="79" height="30"/>
-                                <state key="normal" title="Add Videos">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="importVideosTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psg-KB-2lr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaA-R3-kZz">
                                 <rect key="frame" x="81" y="341" width="159" height="30"/>
                                 <state key="normal" title="Add Charles Certificate">
@@ -63,11 +54,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jfl-0N-3XN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Hi-Yk-7QI"/>
-                            <constraint firstAttribute="centerX" secondItem="Uz0-La-A4V" secondAttribute="centerX" constant="-2.5" id="5jn-Nu-6Gg"/>
                             <constraint firstItem="b6H-2c-QzG" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" id="8Sa-BL-mHX"/>
                             <constraint firstAttribute="centerX" secondItem="b6H-2c-QzG" secondAttribute="centerX" constant="-0.5" id="GpJ-yA-ru2"/>
-                            <constraint firstItem="b6H-2c-QzG" firstAttribute="top" secondItem="Uz0-La-A4V" secondAttribute="bottom" constant="54" id="JaN-nA-3SR"/>
-                            <constraint firstItem="jfl-0N-3XN" firstAttribute="trailing" secondItem="Uz0-La-A4V" secondAttribute="trailing" id="Jdj-Qz-LJ3"/>
                             <constraint firstItem="NaA-R3-kZz" firstAttribute="top" secondItem="b6H-2c-QzG" secondAttribute="bottom" constant="42" id="MZC-O6-hXc"/>
                             <constraint firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" constant="-0.5" id="Qy9-X4-NlE"/>
                             <constraint firstAttribute="centerX" secondItem="Q1G-Ns-wOJ" secondAttribute="centerX" constant="-0.5" id="Ruw-FI-ko9"/>
@@ -75,7 +63,7 @@
                             <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" id="oXQ-En-vdH"/>
                             <constraint firstAttribute="centerX" secondItem="NaA-R3-kZz" secondAttribute="centerX" constant="-0.5" id="om6-F2-oKF"/>
                             <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="qYU-RF-lPA"/>
-                            <constraint firstItem="Uz0-La-A4V" firstAttribute="top" secondItem="jfl-0N-3XN" secondAttribute="bottom" constant="21" id="yp5-4f-PdL"/>
+                            <constraint firstItem="jfl-0N-3XN" firstAttribute="top" secondItem="Q1G-Ns-wOJ" secondAttribute="bottom" constant="76" id="rbU-fG-DYF"/>
                             <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="z5v-uU-PiI"/>
                         </constraints>
                     </view>
