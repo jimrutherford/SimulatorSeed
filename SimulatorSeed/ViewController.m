@@ -12,7 +12,7 @@
 #import "ImageManager.h"
 
 
-@interface ViewController () <UIAlertViewDelegate, UITextFieldDelegate>
+@interface ViewController () <UIAlertViewDelegate, UITextFieldDelegate, ImageManagerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *pathTextField;
@@ -40,9 +40,7 @@
     _pathTextField.text = homeDirectory;
     
     _pathTextField.delegate = self;
-    
 }
-
 
 
 #pragma mark - Contacts
@@ -64,38 +62,33 @@
 
 
 #pragma mark - Actions
-- (IBAction)importImagesTapped:(id)sender
+- (IBAction)importStockImagesTapped:(id)sender
 {
- 
     ImageManager *manager = [[ImageManager alloc] init];
-    
-    //[manager transferImagesOfType:ImageTypeBig];
-    
-    //[manager transferImagesOfType:ImageTypeMedium];
-    
-    //[manager transferImagesOfType:ImageTypeSmall];
-    
-    [manager transferImagesOfType:ImageTypeHeadshots];
-    
-    
-    /*
-    NSString *path = self.pathTextField.text;
-    _filePaths = [NSMutableArray array];
-    _videoFilePaths = [NSMutableArray array];
-    for (NSString *filePath in [[NSFileManager defaultManager] enumeratorAtPath:path].allObjects)
-    {
-        NSString *fileExtension = [[filePath pathExtension] lowercaseString];
-        BOOL isPhoto = ([fileExtension isEqualToString:@"jpg"] || [fileExtension isEqualToString:@"png"]);
-        
-        if (isPhoto) {
-            [_filePaths addObject:[path stringByAppendingPathComponent:filePath]];
-        }
-    }
-    
-    
-    [self importNextImage];
-    */
+    manager.delegate = self;
+    [manager transferStockImages];
 }
+
+- (IBAction)importCustomImagesTapped:(id)sender
+{
+    ImageManager *manager = [[ImageManager alloc] init];
+    manager.delegate = self;
+    [manager transferCustomImagesFromPath:_pathTextField.text];
+}
+
+#pragma mark - Image Manager Delegate Methods
+
+- (void) transferProgessForCurrent:(NSInteger)current withTotal:(NSInteger)total
+{
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"%li of %li", (long)current, (long)total]];
+}
+
+- (void) didFinishTransferingImages
+{
+    [SVProgressHUD dismissWithSuccess:@"Success!" afterDelay:2.0f];
+}
+
+
 
 
 #pragma mark - Cleanup

@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef enum
-{
-    ImageTypeBig = 0,
-    ImageTypeMedium,
-    ImageTypeSmall,
-    ImageTypeHeadshots,
-    ImageTypeFilesystem
-    
-} ImageType;
+@protocol ImageManagerDelegate <NSObject>
+
+- (void) transferProgessForCurrent:(NSInteger)current withTotal:(NSInteger)total;
+- (void) didFinishTransferingImages;
+
+@end
 
 @interface ImageManager : NSObject
 
-- (void) transferImagesOfType:(ImageType)type;
+@property (nonatomic, assign) id<ImageManagerDelegate> delegate;
+
+- (void) transferStockImages;
+- (void) transferCustomImagesFromPath:(NSString*)path;
 
 @end

@@ -28,138 +28,202 @@
     self = [super init];
     if (!self) return nil;
     
-    numberOfPhotos = 0;
-    numberOfPhotosProcessed = 0;
-    numberOfErrors = 0;
-    
     _library = [[ALAssetsLibrary alloc] init];
     
     return self;
 }
 
 
-- (void) transferImagesOfType:(ImageType)type
+- (void) transferCustomImagesFromPath:(NSString*)path
+{
+    NSMutableArray *images = [NSMutableArray array];
+    
+    path = [path stringByAppendingPathComponent:@"images"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtURL:[NSURL URLWithString:path]
+                                    includingPropertiesForKeys:@[NSURLNameKey, NSURLIsDirectoryKey]
+                                                       options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                  errorHandler:nil];
+    
+    for (NSURL *url in dirEnumerator) {
+        NSNumber *isDirectory;
+        [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
+        if ([isDirectory boolValue]) {
+            // This is a file - remove it
+            NSLog(@"Folder > %@", url.path);
+            NSLog(@"Folder name > %@", [url.pathComponents lastObject]);
+            
+            [images addObjectsFromArray:[self imageArrayForPath:url.path albumName:[url.pathComponents lastObject]]];
+        }
+    }
+
+    [self processImageQueue:[images copy]];
+
+}
+
+- (void) transferStockImages
 {
     
-    NSArray *images;
-    NSString *albumName;
+    NSMutableArray *images = [NSMutableArray array];
     
-    // big landscape 5 port 3
-    switch (type) {
-        case ImageTypeBig:
-            images = [self imageArrayForPrefix:@"big" landscapeCount:5 portraitCount:3];
-            albumName = @"Big Images";
-            break;
-        case ImageTypeMedium:
-            images = [self imageArrayForPrefix:@"medium" landscapeCount:4 portraitCount:4];
-            albumName = @"Medium Images";
-            break;
-        case ImageTypeSmall:
-            images = [self imageArrayForPrefix:@"small" landscapeCount:5 portraitCount:3];
-            albumName = @"Small Images";
-            break;
-        case ImageTypeHeadshots:
-            images = [self headshotImageArray];
-            albumName = @"Headshots";
-            break;
-        default:
-            break;
-    }
-    
-    
+    [images addObjectsFromArray: [self imageArrayForPrefix:@"big" albumName:@"Big Images" landscapeCount:5 portraitCount:3]];
+    [images addObjectsFromArray: [self imageArrayForPrefix:@"medium" albumName:@"Medium Images" landscapeCount:4 portraitCount:4]];
+    [images addObjectsFromArray: [self imageArrayForPrefix:@"small" albumName:@"Small Images" landscapeCount:5 portraitCount:3]];
+    [images addObjectsFromArray: [self headshotImageArray]];
+
+    [self processImageQueue:[images copy]];
+}
+
+- (void) processImageQueue:(NSArray*)images
+{
+    numberOfPhotos = [images count];
+    numberOfPhotosProcessed = 0;
     
     NSOperationQueue *transferQueue = [[NSOperationQueue alloc] init];
     transferQueue.name = @"Transfer Queue";
     transferQueue.maxConcurrentOperationCount = 1;
     [transferQueue waitUntilAllOperationsAreFinished];
     
-    for (NSString *imageName in images)
+    for (NSDictionary *imageData in images)
     {
         [transferQueue addOperationWithBlock: ^ {
-            [self saveImage:[UIImage imageNamed:imageName] toAlbum:albumName];
+            [self saveImage:imageData[@"image"] toAlbum:imageData[@"albumName"]];
         }];
     }
     
+    [transferQueue addOperationWithBlock:^{
+        
+        if ([self.delegate respondsToSelector:@selector(didFinishTransferingImages)])
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate didFinishTransferingImages];
+            });
+        }
+        
+    }];
+
 }
 
-                    
 
 - (void) saveImage:(UIImage*)image toAlbum:(NSString*)album
 {
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+    
     __weak ALAssetsLibrary *lib = self.library;
     
     NSLog(@"Image");
     
-    [self.library addAssetsGroupAlbumWithName:album resultBlock:^(ALAssetsGroup *group) {
+    dispatch_async(queue, ^{
         
-        ///checks if group previously created
-        if(group == nil){
+        [self.library addAssetsGroupAlbumWithName:album resultBlock:^(ALAssetsGroup *group) {
             
-            //enumerate albums
-            [lib enumerateGroupsWithTypes:ALAssetsGroupAlbum
-                               usingBlock:^(ALAssetsGroup *assetGroup, BOOL *stop)
-             {
-                 //if the album is equal to our album
-                 if ([[assetGroup valueForProperty:ALAssetsGroupPropertyName] isEqualToString:album]) {
-                     
-                     //save image
-                     [lib writeImageDataToSavedPhotosAlbum:UIImageJPEGRepresentation(image, 1) metadata:nil
-                                           completionBlock:^(NSURL *assetURL, NSError *error) {
-                                               
-                                               if (error) NSLog(@"Error:  %@", error);
-                                               
-                                               //then get the image asseturl
-                                               [lib assetForURL:assetURL resultBlock:^(ALAsset *asset) {
-                                                   //put it into our album
-                                                   [assetGroup addAsset:asset];
+            ///checks if group previously created
+            if(group == nil){
+                
+                //enumerate albums
+                [lib enumerateGroupsWithTypes:ALAssetsGroupAlbum
+                                   usingBlock:^(ALAssetsGroup *assetGroup, BOOL *stop)
+                 {
+                     //if the album is equal to our album
+                     if ([[assetGroup valueForProperty:ALAssetsGroupPropertyName] isEqualToString:album]) {
+                         
+                         //save image
+                         [lib writeImageDataToSavedPhotosAlbum:UIImageJPEGRepresentation(image, 1) metadata:nil
+                                               completionBlock:^(NSURL *assetURL, NSError *error) {
                                                    
+                                                   if (error) NSLog(@"Error:  %@", error);
+                                                   
+                                                   //then get the image asseturl
+                                                   [lib assetForURL:assetURL resultBlock:^(ALAsset *asset) {
+                                                       //put it into our album
+                                                       [assetGroup addAsset:asset];
+                                                       dispatch_semaphore_signal(sema);
+                                                   } failureBlock:^(NSError *error) {
+                                                       NSLog(@"Error:  %@", error);
+                                                   }];
+                                               }];
+                         
+                     }
+                 }failureBlock:^(NSError *error){
+                     NSLog(@"Error:  %@", error);
+                 }];
+                
+            }else{
+                // save image directly to library
+                [lib writeImageDataToSavedPhotosAlbum:UIImageJPEGRepresentation(image, 1) metadata:nil
+                                      completionBlock:^(NSURL *assetURL, NSError *error) {
+                                          
+                                          [lib assetForURL:assetURL
+                                               resultBlock:^(ALAsset *asset) {
+                                                   
+                                                   [group addAsset:asset];
+                                                   dispatch_semaphore_signal(sema);
                                                } failureBlock:^(NSError *error) {
                                                    NSLog(@"Error:  %@", error);
                                                }];
-                                           }];
-                     
-                 }
-             }failureBlock:^(NSError *error){
-                 NSLog(@"Error:  %@", error);
-             }];
+                                      }];
+            }
             
-        }else{
-            // save image directly to library
-            [lib writeImageDataToSavedPhotosAlbum:UIImageJPEGRepresentation(image, 1) metadata:nil
-                                  completionBlock:^(NSURL *assetURL, NSError *error) {
-                                      
-                                      [lib assetForURL:assetURL
-                                           resultBlock:^(ALAsset *asset) {
-                                               
-                                               [group addAsset:asset];
-                                               
-                                           } failureBlock:^(NSError *error) {
-                                               NSLog(@"Error:  %@", error);
-                                           }];
-                                  }];
-        }
+        } failureBlock:^(NSError *error) {
+            
+        }];
         
-    } failureBlock:^(NSError *error) {
-        
-    }];
+    });
+    
+    
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    
+    numberOfPhotosProcessed++;
+    
+    if ([self.delegate respondsToSelector:@selector(transferProgessForCurrent:withTotal:)])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate transferProgessForCurrent:numberOfPhotosProcessed withTotal:numberOfPhotos];
+        });
+    }
+    
 }
 
 #pragma mark - Utility
 
--(NSArray*) imageArrayForPrefix:(NSString*)prefix landscapeCount:(NSInteger)landscapeCount portraitCount:(NSInteger)portraitCount
+
+-(NSArray*) imageArrayForPath:(NSString*)path albumName:(NSString*)albumName
+{
+    NSMutableArray *images = [NSMutableArray array];
+    
+    for (NSString *filePath in [[NSFileManager defaultManager] enumeratorAtPath:path].allObjects)
+    {
+        NSString *fileExtension = [[filePath pathExtension] lowercaseString];
+        
+        BOOL isPhoto = ([fileExtension isEqualToString:@"jpg"] || [fileExtension isEqualToString:@"png"]);
+        
+        if (isPhoto) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[path stringByAppendingPathComponent:filePath]];
+            [images addObject:@{@"albumName":albumName,  @"image":image}];
+        }
+    }
+    
+    return [images copy];
+}
+
+-(NSArray*) imageArrayForPrefix:(NSString*)prefix albumName:(NSString*)albumName landscapeCount:(NSInteger)landscapeCount portraitCount:(NSInteger)portraitCount
 {
     NSMutableArray *images = [NSMutableArray array];
     
     for (NSInteger l = 1; l < landscapeCount + 1; l++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"%@-l-0%li.jpg", prefix, l];
-        [images addObject:imageName];
+        NSString *imageName = [NSString stringWithFormat:@"%@-l-0%li.jpg", prefix, (long)l];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [images addObject:@{@"albumName":albumName, @"image":image}];
     }
     
     for (NSInteger p = 1; p < portraitCount + 1; p++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"%@-p-0%li.jpg", prefix, p];
-        [images addObject:imageName];
+        NSString *imageName = [NSString stringWithFormat:@"%@-p-0%li.jpg", prefix, (long)p];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [images addObject:@{@"albumName":albumName, @"image":image}];
     }
     
     return [images copy];
@@ -171,102 +235,19 @@
     
     for (NSInteger m = 1; m < 7; m++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"%man-0%li.jpg", m];
-        [images addObject:imageName];
+        NSString *imageName = [NSString stringWithFormat:@"%man-0%li.jpg", (long)m];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [images addObject:@{@"albumName":@"Headshots", @"image":image}];
     }
     
     for (NSInteger w = 1; w < 7; w++)
     {
-        NSString *imageName = [NSString stringWithFormat:@"woman-0%li.jpg", w];
-        [images addObject:imageName];
+        NSString *imageName = [NSString stringWithFormat:@"woman-0%li.jpg", (long)w];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [images addObject:@{@"albumName":@"Headshots", @"image":image}];
     }
     
     return [images copy];
 }
-
-
-
-/*
-- (void)saveImageWithMetadata:(NSString *)filePath
-{
-    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-    
-    NSURL *imageFileURL = [NSURL fileURLWithPath:filePath];
-    CGImageSourceRef source = CGImageSourceCreateWithURL((CFURLRef)imageFileURL, NULL);
-    NSDictionary *metadata = (NSDictionary *) CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(source, 0, NULL));
-    
-    [self.library writeImageToSavedPhotosAlbum:[image CGImage]
-                                      metadata:metadata
-                               completionBlock:^(NSURL *newURL, NSError *error) {
-                                   [self image:image didFinishSavingWithError:error contextInfo:nil];
-                               }];
-}
-
-- (void)importNextImage
-{
-    [self saveImageWithMetadata:[self.filePaths lastObject]];
-    [self.filePaths removeLastObject];
-}
-
-- (void)importNextVideo
-{
-    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([self.videoFilePaths lastObject])) {
-        UISaveVideoAtPathToSavedPhotosAlbum([self.videoFilePaths lastObject], self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
-    }
-    
-    [self.videoFilePaths removeLastObject];
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-    numberOfPhotosProcessed++;
-    
-    if (error)
-    {
-        numberOfErrors++;
-        
-        [SVProgressHUD dismissWithError:error.localizedDescription];
-        return;
-    }
-    
-    if (numberOfPhotosProcessed == numberOfPhotos) {
-        if (numberOfErrors == 0)
-            [SVProgressHUD dismissWithSuccess:@"Success." afterDelay:3];
-        else
-            [SVProgressHUD dismissWithError:[NSString stringWithFormat:@"%lu of %lu have failed.", (unsigned long)numberOfErrors, (unsigned long)numberOfPhotos] afterDelay:3];
-    }
-    else
-        [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"%lu of %lu", (unsigned long)numberOfPhotosProcessed, (unsigned long)numberOfPhotos]];
-    
-    // Continue importing
-    if (numberOfPhotosProcessed < numberOfPhotos)
-        [self importNextImage];
-}
-
-- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    numberOfVideosProcessed++;
-    
-    if (error)
-    {
-        numberOfVideoErrors++;
-        
-        [SVProgressHUD dismissWithError:error.localizedDescription];
-        return;
-    }
-    
-    if (numberOfVideosProcessed == numberOfVideos) {
-        if (numberOfVideoErrors == 0)
-            [SVProgressHUD dismissWithSuccess:@"Success." afterDelay:3];
-        else
-            [SVProgressHUD dismissWithError:[NSString stringWithFormat:@"%lu of %lu have failed.", numberOfVideoErrors, numberOfVideos] afterDelay:3];
-    }
-    else
-        [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"%lu of %lu", numberOfVideosProcessed, numberOfVideos]];
-    
-    // Continue importing
-    if (numberOfVideosProcessed < numberOfVideos)
-        [self importNextVideo];
-}
-*/
 
 @end

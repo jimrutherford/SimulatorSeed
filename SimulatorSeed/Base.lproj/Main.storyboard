@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -28,17 +27,17 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1G-Ns-wOJ">
-                                <rect key="frame" x="147" y="28" width="26" height="30"/>
+                                <rect key="frame" x="147" y="133" width="26" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfl-0N-3XN">
-                                <rect key="frame" x="119" y="134" width="83" height="30"/>
-                                <state key="normal" title="Add Images">
+                                <rect key="frame" x="97" y="57" width="127" height="30"/>
+                                <state key="normal" title="Add Stock Images">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="importImagesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkC-8z-nxh"/>
+                                    <action selector="importStockImagesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PFV-pD-GTk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaA-R3-kZz">
@@ -50,21 +49,31 @@
                                     <action selector="installCharlesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rjt-hU-X7y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oA-SU-kk6">
+                                <rect key="frame" x="81" y="95" width="157" height="30"/>
+                                <state key="normal" title="Import Custom Images">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="importCustomImagesTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Mr-eT-SE0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jfl-0N-3XN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Hi-Yk-7QI"/>
-                            <constraint firstItem="b6H-2c-QzG" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" id="8Sa-BL-mHX"/>
+                            <constraint firstItem="1oA-SU-kk6" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" constant="-1" id="5No-XZ-FaV"/>
                             <constraint firstAttribute="centerX" secondItem="b6H-2c-QzG" secondAttribute="centerX" constant="-0.5" id="GpJ-yA-ru2"/>
+                            <constraint firstItem="jfl-0N-3XN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="K5U-uC-9k5"/>
                             <constraint firstItem="NaA-R3-kZz" firstAttribute="top" secondItem="b6H-2c-QzG" secondAttribute="bottom" constant="42" id="MZC-O6-hXc"/>
                             <constraint firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" constant="-0.5" id="Qy9-X4-NlE"/>
                             <constraint firstAttribute="centerX" secondItem="Q1G-Ns-wOJ" secondAttribute="centerX" constant="-0.5" id="Ruw-FI-ko9"/>
+                            <constraint firstItem="1oA-SU-kk6" firstAttribute="top" secondItem="jfl-0N-3XN" secondAttribute="bottom" constant="8" id="iuj-pD-F2g"/>
                             <constraint firstItem="b6H-2c-QzG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jWw-gP-CAJ"/>
+                            <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="top" secondItem="1oA-SU-kk6" secondAttribute="bottom" constant="8" id="lUy-0J-twG"/>
                             <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="centerX" secondItem="jfl-0N-3XN" secondAttribute="centerX" id="oXQ-En-vdH"/>
                             <constraint firstAttribute="centerX" secondItem="NaA-R3-kZz" secondAttribute="centerX" constant="-0.5" id="om6-F2-oKF"/>
                             <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="qYU-RF-lPA"/>
-                            <constraint firstItem="jfl-0N-3XN" firstAttribute="top" secondItem="Q1G-Ns-wOJ" secondAttribute="bottom" constant="76" id="rbU-fG-DYF"/>
-                            <constraint firstItem="Q1G-Ns-wOJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="z5v-uU-PiI"/>
                         </constraints>
                     </view>
                     <connections>
