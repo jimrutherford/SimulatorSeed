@@ -47,12 +47,17 @@
 
 - (IBAction)addContactsTapped:(id)sender
 {
-    [SVProgressHUD showWithStatus:@"Adding contacts"];
+    //[SVProgressHUD showWithStatus:@"Adding contacts"];
     
     ContactsManager *manager = [[ContactsManager alloc] init];
-    NSString *seedDataPath = self.pathTextField.text;
+    //NSString *seedDataPath = self.pathTextField.text;
+    //[manager importContacts:seedDataPath];
     
-    [manager importContacts:seedDataPath];
+    [manager importStockContacts];
+    
+    return;
+    
+    
 }
 
 

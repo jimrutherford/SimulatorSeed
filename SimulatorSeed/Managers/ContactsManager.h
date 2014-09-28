@@ -11,6 +11,7 @@
 
 @interface ContactsManager : NSObject
 
--(void)importContacts:(NSString*)seedDataPath;
+- (void) importStockContacts;
+- (void) importContacts:(NSString*)seedDataPath;
 
 @end

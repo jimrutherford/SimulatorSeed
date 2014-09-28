@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371477D319D722A900F48906 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 371477D219D722A900F48906 /* users.json */; };
 		37A77A5019D3A036009694B8 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A77A4F19D3A036009694B8 /* ImageManager.m */; };
 		37A77A5319D3A050009694B8 /* ContactsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A77A5219D3A050009694B8 /* ContactsManager.m */; };
 		37BF02F719CA281B0076B306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BF02F619CA281B0076B306 /* main.m */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		371477D219D722A900F48906 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		37A77A4E19D3A036009694B8 /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageManager.h; path = Managers/ImageManager.h; sourceTree = "<group>"; };
 		37A77A4F19D3A036009694B8 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageManager.m; path = Managers/ImageManager.m; sourceTree = "<group>"; };
 		37A77A5119D3A050009694B8 /* ContactsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsManager.h; path = Managers/ContactsManager.h; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		37FB19A219CBB52700F05C51 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				371477D219D722A900F48906 /* users.json */,
 				37BF030119CA281B0076B306 /* Images.xcassets */,
 			);
 			name = Assets;
@@ -175,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				371477D319D722A900F48906 /* users.json in Resources */,
 				37BF030019CA281B0076B306 /* Main.storyboard in Resources */,
 				37BF030219CA281B0076B306 /* Images.xcassets in Resources */,
 				37BF031E19CA2A0A0076B306 /* SVProgressHUD.bundle in Resources */,

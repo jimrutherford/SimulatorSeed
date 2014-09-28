@@ -1,0 +1,124 @@
+{
+  "results": [
+  {
+  "user": {
+    "name": {
+      "title": "mrs",
+      "first": "debbie",
+      "last": "harrison"
+    },
+    "location": {
+      "street": "7363 cackson st",
+      "city": "medford",
+      "state": "new jersey",
+      "zip": "56280"
+    },
+    "email": {
+      "email": "debbie.harrison19@example.com"
+    },
+    "phone": {
+      "home": "(174)-604-8594",
+      "cell": "(664)-652-2052"
+    },
+    "profilePicture": "profilePictures/15.jpg",
+    "dob": "340769821"
+  }
+},
+{
+  "user": {
+    "name": {
+      "title": "mr",
+      "first": "rene",
+      "last": "lane"
+    },
+    "location": {
+      "street": "8949 hogan st",
+      "city": "stockton",
+      "state": "south carolina",
+      "zip": "85785"
+    },
+    "email": {
+      "email": "rene.lane11@example.com"
+    },
+    "phone": {
+      "home": "(282)-433-7436",
+      "cell": "(529)-763-1276"
+    },
+    "profilePicture": "profilePictures/16.jpg",
+    "dob": "15464602"
+  }
+},
+{
+  "user": {
+    "name": {
+      "title": "miss",
+      "first": "charlotte",
+      "last": "hale"
+    },
+    "location": {
+      "street": "6379 smokey ln",
+      "city": "frederick",
+      "state": "kentucky",
+      "zip": "20551"
+    },
+    "email": {
+      "email": "charlotte.hale22@example.com"
+    },
+    "phone": {
+      "home": "(978)-184-3786",
+      "cell": "(337)-206-4907"
+    },
+    "profilePicture": "profilePictures/17.jpg",
+    "dob": "409388912"
+  }
+},
+{
+  "user": {
+    "name": {
+      "title": "mr",
+      "first": "calvin",
+      "last": "pierce"
+    },
+    "location": {
+      "street": "9279 railroad st",
+      "city": "lousville",
+      "state": "washington",
+      "zip": "30824"
+    },
+    "email": {
+      "email": "calvin.pierce27@example.com"
+    },
+    "phone": {
+      "home": "(823)-155-3099",
+      "cell": "(129)-879-5775"
+    },
+    "profilePicture": "profilePictures/18.jpg",
+    "dob": "48125682"
+  }
+},
+{
+  "user": {
+    "name": {
+      "title": "mr",
+      "first": "gabriel",
+      "last": "kelley"
+    },
+    "location": {
+      "street": "7362 w campbell ave",
+      "city": "los lunas",
+      "state": "texas",
+      "zip": "23175"
+    },
+    "email": {
+      "email": "gabriel.kelley46@example.com"
+    },
+    "phone": {
+      "home": "(474)-353-7249",
+      "cell": "(999)-659-7157"
+    },
+    "profilePicture": "profilePictures/19.jpg",
+    "dob": "277961325"
+  }
+}
+]
+}
